@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Jieran&#39;s Blog</title>
+  <title>简椿先</title>
   
-  <subtitle>爱好游戏的码农</subtitle>
+  <subtitle>Jieran</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jieran.github.io/"/>
