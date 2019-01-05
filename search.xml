@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Vue文档风格的Typora主题</title>
+      <link href="/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/"/>
+      <url>/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/</url>
+      
+        <content type="html"><![CDATA[<h3 id="This-is-Vue"><a href="#This-is-Vue" class="headerlink" title="This is Vue"></a>This is Vue</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2019/01/04/hello-world/"/>
       <url>/2019/01/04/hello-world/</url>
