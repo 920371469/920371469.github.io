@@ -5,7 +5,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Makedown语法说明, 简椿先">
+    <meta name="keywords" content="Markdown语法说明, 简椿先">
     <meta name="description" content="NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Makedown语法说明 | 简椿先</title>
+    <title>Markdown语法说明 | 简椿先</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +273,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Makedown语法说明
+                        Markdown语法说明
                     </div>
                 </div>
             </div>
@@ -289,18 +289,109 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             
             <div class="article-tag">
                 
-                <a href="/tags/Makedown/" target="_blank">
-                    <span class="chip bg-color">Makedown</span>
+                <a href="/tags/Markdown/" target="_blank">
+                    <span class="chip bg-color">Markdown</span>
                 </a>
                 
             </div>
@@ -332,9 +423,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong>NOTE:</strong> This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax.</p>
-<p><strong>声明:</strong> 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里查看它的源文件。「繁体中文版的原始文件可以查看这里 。」–By @riku</p>
+<p><strong>声明:</strong> 这份文档派生(fork)于<a href="https://markdown.tw/" target="_blank" rel="noopener">繁体中文版</a>，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里<a href="https://dnspod.qcloud.com/static/block.html?d=gitcafe.com" target="_blank" rel="noopener">查看它的源文件</a>。「繁体中文版的原始文件可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md" target="_blank" rel="noopener">查看这里</a> 。」–By @<a href="http://twitter.com/riku" target="_blank" rel="noopener">riku</a></p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><hr>
-<h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h3><p>&emsp;&emsp;Markdown 的目标是实现「易读易写」。</p>
+<h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a><span id="id2">宗旨</span></h3><p>&emsp;&emsp;Markdown 的目标是实现「易读易写」。</p>
 <p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式</p>
 <p>总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像<em>强调</em>。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
 <h3 id="兼容HTML"><a href="#兼容HTML" class="headerlink" title="兼容HTML"></a>兼容HTML</h3><p>&emsp;&emsp;Markdown 语法的目标是：成为一种适用于网络的书写语言。</p>
@@ -386,11 +477,21 @@
 ***
 ---
 </code></pre><h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><hr>
-<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>this is <a href="https://baidu.com 百度" target="_blank" rel="noopener">百度</a> inline link<br><a href="https://www.alibabagroup.com 阿里" target="_blank" rel="noopener">阿里巴巴</a></p>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><span id="id3">超链接</span></h3><p>this is <a href="https://baidu.com" target="_blank" rel="noopener">百度</a> inline link<br><a href="https://www.alibabagroup.com" target="_blank" rel="noopener">阿里巴巴</a><br><a href="https://https://jiesanc.github.io/" title="欢迎您的到来" target="_blank" rel="noopener">我的博客</a></p>
 <pre class=" language-python"><code class="language-python">this <span class="token keyword">is</span> <span class="token punctuation">[</span>百度<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">)</span> inline link
 <span class="token punctuation">[</span>阿里巴巴<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>alibabagroup<span class="token punctuation">.</span>com<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>我的博客<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>https<span class="token punctuation">:</span><span class="token operator">//</span>jiesanc<span class="token punctuation">.</span>github<span class="token punctuation">.</span>io<span class="token operator">/</span> <span class="token string">"欢迎您的到来"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 注意:最后面的title一定要用引号引起来</span>
+
 </code></pre>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="https://jiesanc.github.io/medias/featureimages/20.jpg" alt="加载失败显示的文字" title="你好啊朋友"></p>
+<pre class=" language-python"><code class="language-python">!<span class="token punctuation">[</span>加载失败显示的文字<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>jiesanc<span class="token punctuation">.</span>github<span class="token punctuation">.</span>io<span class="token operator">/</span>medias<span class="token operator">/</span>featureimages<span class="token operator">/</span><span class="token number">20.</span>jpg <span class="token string">"你好啊朋友"</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h3><p><a href="#id2">跳转到宗旨</a><br><a href="#id3">跳转到超链接</a></p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&lt;</span>span id<span class="token operator">=</span><span class="token string">"jump"</span><span class="token operator">></span>跳转到的位置<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+<span class="token punctuation">[</span>说明文字<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token comment" spellcheck="true">#jump)</span>
+</code></pre>
+
             </div>
             <hr>
 
@@ -528,7 +629,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://Jiesanc.github.io" class="b-link-green">简椿先</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/14/makedown-yu-fa-shuo-ming/" class="b-link-green">Makedown语法说明</a>
+                    <a href="/2019/01/14/madown-yu-fa-shuo-ming/" class="b-link-green">Markdown语法说明</a>
                 </p>
             </div>
         </div>
@@ -552,13 +653,13 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2019/01/14/makedown-yu-fa-shuo-ming/">
+                <a href="/2019/01/14/madown-yu-fa-shuo-ming/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Makedown语法说明">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法说明">
                         
-                        <span class="card-title">Makedown语法说明</span>
+                        <span class="card-title">Markdown语法说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -583,8 +684,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Makedown/" target="_blank">
-                        <span class="chip bg-color">Makedown</span>
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -596,30 +697,17 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/01/14/nginx-de-shi-yong-bi-ji/">
+                <a href="/2019/01/14/markdown-yu-fa-shuo-ming/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Nginx的使用笔记">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法说明">
                         
-                        <span class="card-title">Nginx的使用笔记</span>
+                        <span class="card-title">Markdown语法说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Nginx功能概述
-这是第一个列表项
-这是第二个列表项
-
-
-red
-green
-blue   
-
-比如：在文字两旁加上星号，看起来就像强调
-            Foo    
-
-
-一、前言软件也像人一样，具有生命力，从出生到死亡，会经历</div>
+                    <div class="summary">NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document.</div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
@@ -628,8 +716,8 @@ blue
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                    后端
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -639,8 +727,8 @@ blue
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/" target="_blank">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -690,6 +778,53 @@ blue
     });
 </script>
 
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
     
 
 </main>
