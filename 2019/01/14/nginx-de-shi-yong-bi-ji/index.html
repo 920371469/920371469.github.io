@@ -5,8 +5,21 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue文档风格的Typora主题, 简椿先">
-    <meta name="description" content="This is Vue">
+    <meta name="keywords" content="Nginx的使用笔记, 简椿先">
+    <meta name="description" content="Nginx功能概述
+这是第一个列表项
+这是第二个列表项
+
+
+red
+green
+blue   
+
+比如：在文字两旁加上星号，看起来就像强调
+            Foo    
+
+
+一、前言软件也像人一样，具有生命力，从出生到死亡，会经历">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +27,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue文档风格的Typora主题 | 简椿先</title>
+    <title>Nginx的使用笔记 | 简椿先</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +286,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue文档风格的Typora主题
+                        Nginx的使用笔记
                     </div>
                 </div>
             </div>
@@ -299,16 +312,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/Typora/" target="_blank">
-                    <span class="chip bg-color">Typora</span>
-                </a>
-                
-                <a href="/tags/Markdown/" target="_blank">
-                    <span class="chip bg-color">Markdown</span>
-                </a>
-                
-                <a href="/tags/Vue/" target="_blank">
-                    <span class="chip bg-color">Vue</span>
+                <a href="/tags/Nginx/" target="_blank">
+                    <span class="chip bg-color">Nginx</span>
                 </a>
                 
             </div>
@@ -319,15 +324,15 @@
                 <!--<span class="post-cate" style="margin-right: 0px">-->
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/前端/" class="post-category" target="_blank">
-                        前端
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-05
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-14
                 </span>
 				
 				
@@ -339,7 +344,49 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="This-is-Vue"><a href="#This-is-Vue" class="headerlink" title="This is Vue"></a>This is Vue</h3>
+                <h2 id="Nginx功能概述"><a href="#Nginx功能概述" class="headerlink" title="Nginx功能概述"></a>Nginx功能概述</h2><ol>
+<li>这是第一个列表项</li>
+<li>这是第二个列表项</li>
+</ol>
+<ul>
+<li>red</li>
+<li>green</li>
+<li>blue   </li>
+</ul>
+<p>比如：在文字两旁加上星号，看起来就像<em>强调</em></p>
+<table><br>    <tr><br>        <td>Foo</td><br>    </tr><br></table>
+
+
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>软件也像人一样，具有生命力，从出生到死亡，会经历多种变化。软件架构设计也不是一蹴而就的，是不断地演进发展。每个程序员都可以从理解编程原则和模式中受益。</p>
+<p>软件设计原则是一组帮助我们避开不良设计的指导方针。根据Robert Martin的理论，应该避免不良设计的以下三个重要特点：</p>
+<ul>
+<li>很难做改动，因为每一个细微的改动都会影响到系统大量的其他功能</li>
+<li>每当你做一次改动，总会引起系统中预期之外的部分出现故障</li>
+<li>代码很难在其他应用中重用，因其不能从当前应用中单独抽离出来</li>
+</ul>
+<ul>
+<li><p>在列表内部生成代码块</p>
+<pre class=" language-python"><code class="language-python">  <span class="token keyword">from</span> copy <span class="token keyword">import</span> deepcopy<span class="token punctuation">,</span>copy
+  l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+  l1 <span class="token operator">=</span> l             <span class="token comment" spellcheck="true"># 引用,</span>
+  l2 <span class="token operator">=</span> l<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>         <span class="token comment" spellcheck="true"># 相当于浅copy</span>
+  l3 <span class="token operator">=</span> l<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 浅copy</span>
+  l4 <span class="token operator">=</span> copy<span class="token punctuation">(</span>l<span class="token punctuation">)</span>
+  l5 <span class="token operator">=</span> deepcopy<span class="token punctuation">(</span>l<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 深copy</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>l3<span class="token punctuation">)</span>
+</code></pre>
+<p>普通代码块</p>
+<p>  from copy import deepcopy,copy<br>  l = [1, [1, 2, 3], [4, 5, 6]]</p>
+<p>  l1 = l             # 引用,<br>  l2 = l[:2]         # 相当于浅copy<br>  l3 = l.copy()      # 浅copy<br>  l4 = copy(l)<br>  l5 = deepcopy(l)   # 深copy<br>  print(l3)</p>
+</li>
+</ul>
+<p>常用引用</p>
+<blockquote>
+<p>文本引用内容内容</p>
+</blockquote>
+<pre><code>  结束引用,空一行
+</code></pre>
             </div>
             <hr>
 
@@ -477,7 +524,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://Jiesanc.github.io" class="b-link-green">简椿先</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/" class="b-link-green">Vue文档风格的Typora主题</a>
+                    <a href="/2019/01/14/nginx-de-shi-yong-bi-ji/" class="b-link-green">Nginx的使用笔记</a>
                 </p>
             </div>
         </div>
@@ -501,30 +548,17 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2019/01/14/nginx-de-shi-yong-bi-ji/">
+                <a href="/2019/01/14/makedown-yu-fa-shuo-ming/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Nginx的使用笔记">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Makedown语法说明">
                         
-                        <span class="card-title">Nginx的使用笔记</span>
+                        <span class="card-title">Makedown语法说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Nginx功能概述
-这是第一个列表项
-这是第二个列表项
-
-
-red
-green
-blue   
-
-比如：在文字两旁加上星号，看起来就像强调
-            Foo    
-
-
-一、前言软件也像人一样，具有生命力，从出生到死亡，会经历</div>
+                    <div class="summary">NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document.</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
@@ -533,8 +567,8 @@ blue
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                    后端
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -544,8 +578,8 @@ blue
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/" target="_blank">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/Makedown/" target="_blank">
+                        <span class="chip bg-color">Makedown</span>
                     </a>
                     
                 </div>
@@ -557,28 +591,48 @@ blue
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/01/04/hello-world/">
+                <a href="/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Vue文档风格的Typora主题">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Vue文档风格的Typora主题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">This is Vue</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Jiesan
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/" target="_blank">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/" target="_blank">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
                 </div>
                 
             </div>

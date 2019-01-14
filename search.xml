@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>Makedown语法说明</title>
+      <link href="/2019/01/14/makedown-yu-fa-shuo-ming/"/>
+      <url>/2019/01/14/makedown-yu-fa-shuo-ming/</url>
+      
+        <content type="html"><![CDATA[<p><strong>NOTE:</strong> This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to Markdown: Syntax.</p><p><strong>声明:</strong> 这份文档派生(fork)于繁体中文版，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里查看它的源文件。「繁体中文版的原始文件可以查看这里 。」–By @riku</p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><hr><h3 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h3><p>&emsp;&emsp;Markdown 的目标是实现「易读易写」。</p><p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式</p><p>总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像<em>强调</em>。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p><h3 id="兼容HTML"><a href="#兼容HTML" class="headerlink" title="兼容HTML"></a>兼容HTML</h3><p>&emsp;&emsp;Markdown 语法的目标是：成为一种适用于网络的书写语言。</p><p>Markdown 并不是想取代 HTML的地位，甚至接近它。它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想不是要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。</p><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。</p><p>要制约的只有一些 HTML 区块元素――比如 div、table、pre、<em><p></p></em> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。Markdown 的生成器有足够智能，不会在 HTML 区块标签外加上不必要的 </p><p> 标签。</p><p>请注意，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。比如，你在 HTML 区块内使用 Markdown 样式的<em>强调</em>会没有效果。</p><p>和处在 HTML 区块标签间不同，Markdown 语法在 HTML 区段标签间是有效的。</p><h3 id="特殊文字自动转换"><a href="#特殊文字自动转换" class="headerlink" title="特殊文字自动转换"></a>特殊文字自动转换</h3><p>在 HTML 文件中，有两个字符需要特殊处理： &lt; 和 &amp; 。 &lt; 符号用于起始标签，&amp; 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 &lt; 和 &amp;。</p><p>&amp; 字符尤其让网络文档编写者受折磨，如果你要打「AT&amp;T」 ，你必须要写成「AT&amp;T」。而网址中的 &amp; 字符也要转换。</p><p>Markdown 让你可以自然地书写字符，需要转换的由它来处理好了。如果你使用的 &amp; 字符是 HTML 字符实体的一部分，它会保留原状，否则它会被转换成 &amp;。</p><p>所以你如果要在文档中插入一个版权符号 ©</p><p>需要注意的是，code 范围内，不论是行内还是区块， &lt; 和 &amp; 两个符号都一定会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code （和 HTML 相对而言， HTML 语法中，你要把所有的 &lt; 和 &amp; 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。）</p><h2 id="区块元素"><a href="#区块元素" class="headerlink" title="区块元素"></a>区块元素</h2><hr><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#   一级标题</span><span class="token comment" spellcheck="true">##</span><span class="token comment" spellcheck="true">###</span><span class="token comment" spellcheck="true">####</span><span class="token comment" spellcheck="true">#####</span><span class="token comment" spellcheck="true">######  六级标题</span></code></pre><h3 id="区块和引用"><a href="#区块和引用" class="headerlink" title="区块和引用"></a>区块和引用</h3><pre class=" language-python"><code class="language-python"><span class="token operator">></span> 引用内容<span class="token operator">></span> 引用内容<span class="token operator">></span> 引用的文字引用的文字引用的文字引用的文字引用的文字 <span class="token operator">>></span> 引言内的引言引言内的引言引言内的引言<span class="token operator">></span> 引用的文字引用的文字引用的文字引用的文字引用的文字</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><pre class=" language-python"><code class="language-python"><span class="token operator">-</span> 无序列表项目<span class="token operator">-</span> 无序列表项目<span class="token operator">-</span> 无序列表项目<span class="token number">1</span><span class="token punctuation">.</span> 有序列表项目<span class="token number">2</span><span class="token punctuation">.</span> 有序列表项目<span class="token number">3</span><span class="token punctuation">.</span> 有序列表项目<span class="token operator">-</span> 外层列表项目 <span class="token operator">+</span> 内层列表项目 <span class="token operator">+</span> 内层列表项目 <span class="token operator">+</span> 内层列表项目<span class="token operator">-</span> 外层列表项目</code></pre><h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><pre class=" language-python"><code class="language-python">使用三个反引号可表示代码块    ```代码语言</code></pre><pre><code>### &lt;span id=&#39;i1&#39;&gt;分割线&lt;/span&gt;```python***---</code></pre><h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><hr><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>this is <a href="https://baidu.com 百度" target="_blank" rel="noopener">百度</a> inline link<br><a href="https://www.alibabagroup.com 阿里" target="_blank" rel="noopener">阿里巴巴</a></p><pre class=" language-python"><code class="language-python">this <span class="token keyword">is</span> <span class="token punctuation">[</span>百度<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">)</span> inline link<span class="token punctuation">[</span>阿里巴巴<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>alibabagroup<span class="token punctuation">.</span>com<span class="token punctuation">)</span></code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Makedown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx的使用笔记</title>
+      <link href="/2019/01/14/nginx-de-shi-yong-bi-ji/"/>
+      <url>/2019/01/14/nginx-de-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Nginx功能概述"><a href="#Nginx功能概述" class="headerlink" title="Nginx功能概述"></a>Nginx功能概述</h2><ol><li>这是第一个列表项</li><li>这是第二个列表项</li></ol><ul><li>red</li><li>green</li><li>blue   </li></ul><p>比如：在文字两旁加上星号，看起来就像<em>强调</em></p><table><br>    <tr><br>        <td>Foo</td><br>    </tr><br></table><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>软件也像人一样，具有生命力，从出生到死亡，会经历多种变化。软件架构设计也不是一蹴而就的，是不断地演进发展。每个程序员都可以从理解编程原则和模式中受益。</p><p>软件设计原则是一组帮助我们避开不良设计的指导方针。根据Robert Martin的理论，应该避免不良设计的以下三个重要特点：</p><ul><li>很难做改动，因为每一个细微的改动都会影响到系统大量的其他功能</li><li>每当你做一次改动，总会引起系统中预期之外的部分出现故障</li><li>代码很难在其他应用中重用，因其不能从当前应用中单独抽离出来</li></ul><ul><li><p>在列表内部生成代码块</p><pre class=" language-python"><code class="language-python">  <span class="token keyword">from</span> copy <span class="token keyword">import</span> deepcopy<span class="token punctuation">,</span>copy  l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  l1 <span class="token operator">=</span> l             <span class="token comment" spellcheck="true"># 引用,</span>  l2 <span class="token operator">=</span> l<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span>         <span class="token comment" spellcheck="true"># 相当于浅copy</span>  l3 <span class="token operator">=</span> l<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 浅copy</span>  l4 <span class="token operator">=</span> copy<span class="token punctuation">(</span>l<span class="token punctuation">)</span>  l5 <span class="token operator">=</span> deepcopy<span class="token punctuation">(</span>l<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 深copy</span>  <span class="token keyword">print</span><span class="token punctuation">(</span>l3<span class="token punctuation">)</span></code></pre><p>普通代码块</p><p>  from copy import deepcopy,copy<br>  l = [1, [1, 2, 3], [4, 5, 6]]</p><p>  l1 = l             # 引用,<br>  l2 = l[:2]         # 相当于浅copy<br>  l3 = l.copy()      # 浅copy<br>  l4 = copy(l)<br>  l5 = deepcopy(l)   # 深copy<br>  print(l3)</p></li></ul><p>常用引用</p><blockquote><p>文本引用内容内容</p></blockquote><pre><code>  结束引用,空一行</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue文档风格的Typora主题</title>
       <link href="/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/"/>
       <url>/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/</url>

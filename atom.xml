@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-01-05T09:13:01.852Z</updated>
+  <updated>2019-01-14T13:55:44.666Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Makedown语法说明</title>
+    <link href="http://Jiesanc.github.io/2019/01/14/makedown-yu-fa-shuo-ming/"/>
+    <id>http://Jiesanc.github.io/2019/01/14/makedown-yu-fa-shuo-ming/</id>
+    <published>2019-01-14T12:24:16.000Z</published>
+    <updated>2019-01-14T13:55:44.666Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://Jiesanc.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Makedown" scheme="http://Jiesanc.github.io/tags/Makedown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx的使用笔记</title>
+    <link href="http://Jiesanc.github.io/2019/01/14/nginx-de-shi-yong-bi-ji/"/>
+    <id>http://Jiesanc.github.io/2019/01/14/nginx-de-shi-yong-bi-ji/</id>
+    <published>2019-01-14T11:15:44.000Z</published>
+    <updated>2019-01-14T12:27:23.905Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Nginx功能概述&quot;&gt;&lt;a href=&quot;#Nginx功能概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Nginx" scheme="http://Jiesanc.github.io/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue文档风格的Typora主题</title>
     <link href="http://Jiesanc.github.io/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/"/>
     <id>http://Jiesanc.github.io/2019/01/05/vue-wen-dang-feng-ge-de-typora-zhu-ti/</id>
     <published>2019-01-05T09:07:46.000Z</published>
-    <updated>2019-01-05T09:13:01.852Z</updated>
+    <updated>2019-01-14T11:17:23.372Z</updated>
     
     <summary type="html">
     
