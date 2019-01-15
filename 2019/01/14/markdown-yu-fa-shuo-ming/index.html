@@ -431,7 +431,7 @@
 <h3 id="兼容HTML"><a href="#兼容HTML" class="headerlink" title="兼容HTML"></a>兼容HTML</h3><p>&emsp;&emsp;Markdown 语法的目标是：成为一种适用于网络的书写语言。</p>
 <p>Markdown 并不是想取代 HTML的地位，甚至接近它。它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想不是要使得 HTML 文档更容易书写。在我看来， HTML 已经很容易写了。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。</p>
 <p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。</p>
-<p>要制约的只有一些 HTML 区块元素――比如 div、table、pre、<em><p></p></em> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。Markdown 的生成器有足够智能，不会在 HTML 区块标签外加上不必要的 </p><p> 标签。</p>
+<p>要制约的只有一些 HTML <code>区块元素</code>――比如 div、table、pre、<em><p></p></em> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进。Markdown 的生成器有足够智能，不会在 HTML 区块标签外加上不必要的 </p><p> 标签。</p>
 <p>请注意，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。比如，你在 HTML 区块内使用 Markdown 样式的<em>强调</em>会没有效果。</p>
 <p>和处在 HTML 区块标签间不同，Markdown 语法在 HTML 区段标签间是有效的。</p>
 <h3 id="特殊文字自动转换"><a href="#特殊文字自动转换" class="headerlink" title="特殊文字自动转换"></a>特殊文字自动转换</h3><p>在 HTML 文件中，有两个字符需要特殊处理： &lt; 和 &amp; 。 &lt; 符号用于起始标签，&amp; 符号则用于标记 HTML 实体，如果你只是想要显示这些字符的原型，你必须要使用实体的形式，像是 &lt; 和 &amp;。</p>
@@ -469,14 +469,13 @@
 <span class="token operator">-</span> 外层列表项目
 </code></pre>
 <h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h3><pre class=" language-python"><code class="language-python">使用三个反引号可表示代码块
-    ```代码语言
+    三点包裹 代码语言
+
 </code></pre>
-<pre><code>
-### &lt;span id=&#39;i1&#39;&gt;分割线&lt;/span&gt;
-```python
-***
----
-</code></pre><h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><hr>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><pre class=" language-python"><code class="language-python"><span class="token operator">**</span><span class="token operator">*</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+</code></pre>
+<h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><hr>
 <h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><span id="id3">超链接</span></h3><p>this is <a href="https://baidu.com" target="_blank" rel="noopener">百度</a> inline link<br><a href="https://www.alibabagroup.com" target="_blank" rel="noopener">阿里巴巴</a><br><a href="https://https://jiesanc.github.io/" title="欢迎您的到来" target="_blank" rel="noopener">我的博客</a></p>
 <pre class=" language-python"><code class="language-python">this <span class="token keyword">is</span> <span class="token punctuation">[</span>百度<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">)</span> inline link
 <span class="token punctuation">[</span>阿里巴巴<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>alibabagroup<span class="token punctuation">.</span>com<span class="token punctuation">)</span>
@@ -651,9 +650,9 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2019/01/14/madown-yu-fa-shuo-ming/">
+                <a href="/2019/01/14/markdown-yu-fa-shuo-ming/">
                     <div class="card-image">
                         
                         
@@ -665,9 +664,9 @@
                 <div class="card-content article-content">
                     <div class="summary">NOTE: This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document.</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -680,6 +679,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
