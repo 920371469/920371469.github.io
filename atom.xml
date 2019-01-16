@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-01-16T11:47:00.423Z</updated>
+  <updated>2019-01-16T11:49:36.159Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://Jiesanc.github.io/2019/01/16/redis-cluster/"/>
     <id>http://Jiesanc.github.io/2019/01/16/redis-cluster/</id>
     <published>2019-01-16T11:22:29.000Z</published>
-    <updated>2019-01-16T11:47:00.423Z</updated>
+    <updated>2019-01-16T11:49:36.159Z</updated>
     
     <summary type="html">
     
@@ -35,10 +35,10 @@
     
     </summary>
     
-      <category term="redis" scheme="http://Jiesanc.github.io/categories/redis/"/>
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="后端" scheme="http://Jiesanc.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+      <category term="redis" scheme="http://Jiesanc.github.io/tags/redis/"/>
     
   </entry>
   
