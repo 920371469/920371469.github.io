@@ -436,12 +436,11 @@ redis官方生成可以达到 10万/每秒,每秒执行10万条命令假如业�
 <ol start="2">
 <li>正确的应该是考虑分布式，加机器，把数据分到不同的位置，分摊集中式的压力，一堆机器做一件事</li>
 </ol>
-<p><img src="http://pythonav.cn/Chapter8/pic/s6.png" alt="老司机"></p>
-<h3 id="客户端切片"><a href="#客户端切片" class="headerlink" title="客户端切片"></a>客户端切片</h3><blockquote>
+<h3 id="客户端切片"><a href="#客户端切片" class="headerlink" title="客户端切片"></a>客户端切片</h3><p><img src="http://pythonav.cn/Chapter8/pic/s8.png" alt="数据分布"></p>
+<blockquote>
 <p>redis实例集群主要思想是将redis数据的key进行散列，通过hash函数特定的key会映射到指定的redis节点上</p>
 </blockquote>
-<h3 id="数据分布原理图"><a href="#数据分布原理图" class="headerlink" title="数据分布原理图"></a>数据分布原理图</h3><p><img src="http://pythonav.cn/Chapter8/pic/s8.png" alt="数据分布"></p>
-<p>分布式数据库首要解决把整个数据集按照分区规则映射到多个节点的问题，即把数据集划分到多个节点上，每个节点负责整个数据的一个子集。</p>
+<h3 id="数据分布原理图"><a href="#数据分布原理图" class="headerlink" title="数据分布原理图"></a>数据分布原理图</h3><p>分布式数据库首要解决把整个数据集按照分区规则映射到多个节点的问题，即把数据集划分到多个节点上，每个节点负责整个数据的一个子集。</p>
 <p>常见的分区规则有哈希分区和顺序分区。Redis Cluster采用哈希分区规则，因此接下来会讨论哈希分区规则。</p>
 <ul>
 <li>节点取余分区</li>
@@ -510,7 +509,7 @@ redis<span class="token operator">-</span>server redis<span class="token number"
 redis<span class="token operator">-</span>server redis<span class="token number">-7004.</span>conf
 redis<span class="token operator">-</span>server redis<span class="token number">-7005.</span>conf
 </code></pre>
-<h4 id="步骤3、开启redis-cluster"><a href="#步骤3、开启redis-cluster" class="headerlink" title="步骤3、开启redis-cluster"></a>步骤3、开启redis-cluster</h4><pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span>下载、编译、安装Ruby
+<h4 id="步骤三、开启redis-cluster"><a href="#步骤三、开启redis-cluster" class="headerlink" title="步骤三、开启redis-cluster"></a>步骤三、开启redis-cluster</h4><pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span>下载、编译、安装Ruby
 <span class="token number">2</span><span class="token punctuation">.</span>安装rubygem redis
 <span class="token number">3</span><span class="token punctuation">.</span>安装redis<span class="token operator">-</span>trib<span class="token punctuation">.</span>rb命令
 </code></pre>
