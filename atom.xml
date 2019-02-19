@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-18T12:52:31.801Z</updated>
+  <updated>2019-02-19T13:38:52.349Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调用支付宝SDK</title>
+    <link href="http://Jiesanc.github.io/2019/02/19/diao-yong-zhi-fu-bao-sdk/"/>
+    <id>http://Jiesanc.github.io/2019/02/19/diao-yong-zhi-fu-bao-sdk/</id>
+    <published>2019-02-19T13:32:44.000Z</published>
+    <updated>2019-02-19T13:38:52.349Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;支付宝支付&quot;&gt;&lt;a href=&quot;#支付宝支付&quot; class=&quot;headerlink&quot; title=&quot;支付宝支付&quot;&gt;&lt;/a&gt;支付宝支付&lt;/h2&gt;&lt;h3 id=&quot;1-1-Alipay&quot;&gt;&lt;a href=&quot;#1-1-Alipay&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="SDK" scheme="http://Jiesanc.github.io/tags/SDK/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>数据分析之NumPy</title>
@@ -38,9 +66,9 @@
       <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="Numpy" scheme="http://Jiesanc.github.io/tags/Numpy/"/>
-    
       <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+      <category term="Numpy" scheme="http://Jiesanc.github.io/tags/Numpy/"/>
     
   </entry>
   
