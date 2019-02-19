@@ -445,16 +445,13 @@ ip install alipay-sdk-python
 <p>需要先下载一个安装环境:</p>
 <pre class=" language-python"><code class="language-python">pip install alipay<span class="token operator">-</span>sdk<span class="token operator">-</span>python
 </code></pre>
-<h3 id="1-2-具体操作"><a href="#1-2-具体操作" class="headerlink" title="1.2 具体操作"></a>1.2 具体操作</h3><p><strong>第一步 访问沙箱环境地址，注册一个商家账户</strong></p>
-<p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215142418831-1543233779.png" alt="信息配置"></p>
+<h3 id="1-2-具体操作"><a href="#1-2-具体操作" class="headerlink" title="1.2 具体操作"></a>1.2 具体操作</h3><h4 id="第一步-访问沙箱环境地址，注册一个商家账户"><a href="#第一步-访问沙箱环境地址，注册一个商家账户" class="headerlink" title="第一步 访问沙箱环境地址，注册一个商家账户"></a>第一步 访问沙箱环境地址，注册一个商家账户</h4><p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215142418831-1543233779.png" alt="信息配置"></p>
 <p>按照他要求的方式生成商户的公钥和私钥~把公钥放入网站~私钥自己留着签名用~~</p>
 <p>下面是商户信息以及卖家信息~下载一个支付宝的沙箱环境~</p>
 <p>然后按照下面的账号和密码登录和支付~~只支持安卓的~</p>
 <p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215142550000-1291772992.png" alt="信息"></p>
-<p><strong>第二步 阅读文档 找到一个适合自己的API</strong></p>
-<p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215143623147-605743495.png" alt="API"></p>
-<p><strong>三步 代码实例</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<h4 id="第二步-阅读文档-找到一个适合自己的API"><a href="#第二步-阅读文档-找到一个适合自己的API" class="headerlink" title="第二步 阅读文档 找到一个适合自己的API"></a>第二步 阅读文档 找到一个适合自己的API</h4><p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215143623147-605743495.png" alt="API"></p>
+<h4 id="第三步-代码实例"><a href="#第三步-代码实例" class="headerlink" title="第三步 代码实例"></a>第三步 代码实例</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
 <span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
 <span class="token keyword">from</span> demo<span class="token punctuation">.</span>views <span class="token keyword">import</span> AliPayView<span class="token punctuation">,</span> PayHandlerView
 
