@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-22T13:32:50.593Z</updated>
+  <updated>2019-02-22T13:35:30.479Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://Jiesanc.github.io/2019/02/22/django-hua-dong-yan-zheng-ma/"/>
     <id>http://Jiesanc.github.io/2019/02/22/django-hua-dong-yan-zheng-ma/</id>
     <published>2019-02-22T13:26:04.000Z</published>
-    <updated>2019-02-22T13:32:50.593Z</updated>
+    <updated>2019-02-22T13:35:30.479Z</updated>
     
     <summary type="html">
     
@@ -41,6 +41,8 @@
       <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
     
       <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+      <category term="SDK" scheme="http://Jiesanc.github.io/tags/SDK/"/>
     
   </entry>
   
