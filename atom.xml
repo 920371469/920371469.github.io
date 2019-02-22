@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-21T13:25:56.027Z</updated>
+  <updated>2019-02-22T13:30:48.444Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django+滑动验证码</title>
+    <link href="http://Jiesanc.github.io/2019/02/22/django-hua-dong-yan-zheng-ma/"/>
+    <id>http://Jiesanc.github.io/2019/02/22/django-hua-dong-yan-zheng-ma/</id>
+    <published>2019-02-22T13:26:04.000Z</published>
+    <updated>2019-02-22T13:30:48.444Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Django中使用滑动验证码&quot;&gt;&lt;a href=&quot;#Django中使用滑动验证码&quot; class=&quot;headerlink&quot; title=&quot;Django中使用滑动验证码&quot;&gt;&lt;/a&gt;Django中使用滑动验证码&lt;/h2&gt;&lt;h3 id=&quot;1-1-注册账号&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Django" scheme="http://Jiesanc.github.io/categories/Django/"/>
+    
+    
+      <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>PyMySQL优化与封装</title>
@@ -38,9 +66,9 @@
       <category term="数据库" scheme="http://Jiesanc.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="MySQL" scheme="http://Jiesanc.github.io/tags/MySQL/"/>
-    
       <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+      <category term="MySQL" scheme="http://Jiesanc.github.io/tags/MySQL/"/>
     
   </entry>
   

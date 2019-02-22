@@ -5,14 +5,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="调用支付宝SDK, 简椿先">
-    <meta name="description" content="支付宝支付1.1 Alipay
-阿里的支付也就是支付宝，官网以及出了Python的SDK了~所以要先下载~~
-
-ip install alipay-sdk-python
-
-
-支付宝沙箱环境的地址 https://openhome.alipa">
+    <meta name="keywords" content="Django+滑动验证码, 简椿先">
+    <meta name="description" content="Django中使用滑动验证码1.1 注册账号极验官方: https://www.geetest.com/
+注册好后去申请key和value
+1.2下载SDK从Github: gt3-python-sdk下载.zip文件
+这是python的,">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ ip install alipay-sdk-python
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>调用支付宝SDK | 简椿先</title>
+    <title>Django+滑动验证码 | 简椿先</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -279,13 +276,13 @@ ip install alipay-sdk-python
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        调用支付宝SDK
+                        Django+滑动验证码
                     </div>
                 </div>
             </div>
@@ -396,12 +393,12 @@ ip install alipay-sdk-python
             
             <div class="article-tag">
                 
-                <a href="/tags/Python/" target="_blank">
-                    <span class="chip bg-color">Python</span>
+                <a href="/tags/Django/" target="_blank">
+                    <span class="chip bg-color">Django</span>
                 </a>
                 
-                <a href="/tags/SDK/" target="_blank">
-                    <span class="chip bg-color">SDK</span>
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
                 </a>
                 
             </div>
@@ -412,15 +409,15 @@ ip install alipay-sdk-python
                 <!--<span class="post-cate" style="margin-right: 0px">-->
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/后端/" class="post-category" target="_blank">
-                        后端
+                    <a href="/categories/Django/" class="post-category" target="_blank">
+                        Django
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-02-19
+                    <i class="fa fa-clock-o fa-fw"></i>2019-02-22
                 </span>
 				
 				
@@ -432,120 +429,12 @@ ip install alipay-sdk-python
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="支付宝支付"><a href="#支付宝支付" class="headerlink" title="支付宝支付"></a>支付宝支付</h2><h3 id="1-1-Alipay"><a href="#1-1-Alipay" class="headerlink" title="1.1 Alipay"></a>1.1 Alipay</h3><blockquote>
-<p>阿里的支付也就是支付宝，官网以及出了Python的SDK了~所以要先下载~~</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python">ip install alipay<span class="token operator">-</span>sdk<span class="token operator">-</span>python
-</code></pre>
-<blockquote>
-<p>支付宝沙箱环境的地址 <a href="https://openhome.alipay.com/platform/appDaily.htm?tab=info" target="_blank" rel="noopener">https://openhome.alipay.com/platform/appDaily.htm?tab=info</a></p>
-</blockquote>
-<p><strong>注意:</strong></p>
-<p>如果安装alipay报</p>
-<p>需要先下载一个安装环境:</p>
-<pre class=" language-python"><code class="language-python">pip install alipay<span class="token operator">-</span>sdk<span class="token operator">-</span>python
-</code></pre>
-<h3 id="1-2-具体操作"><a href="#1-2-具体操作" class="headerlink" title="1.2 具体操作"></a>1.2 具体操作</h3><h4 id="第一步-访问沙箱环境地址，注册一个商家账户"><a href="#第一步-访问沙箱环境地址，注册一个商家账户" class="headerlink" title="第一步 访问沙箱环境地址，注册一个商家账户"></a>第一步 访问沙箱环境地址，注册一个商家账户</h4><p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215142418831-1543233779.png" alt="信息配置"></p>
-<p>按照他要求的方式生成商户的公钥和私钥~把公钥放入网站~私钥自己留着签名用~~</p>
-<p>下面是商户信息以及卖家信息~下载一个支付宝的沙箱环境~</p>
-<p>然后按照下面的账号和密码登录和支付~~只支持安卓的~</p>
-<p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215142550000-1291772992.png" alt="信息"></p>
-<h4 id="第二步-阅读文档-找到一个适合自己的API"><a href="#第二步-阅读文档-找到一个适合自己的API" class="headerlink" title="第二步 阅读文档 找到一个适合自己的API"></a>第二步 阅读文档 找到一个适合自己的API</h4><p><img src="https://img2018.cnblogs.com/blog/1349080/201812/1349080-20181215143623147-605743495.png" alt="API"></p>
-<h4 id="第三步-代码实例"><a href="#第三步-代码实例" class="headerlink" title="第三步 代码实例"></a>第三步 代码实例</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
-<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
-<span class="token keyword">from</span> demo<span class="token punctuation">.</span>views <span class="token keyword">import</span> AliPayView<span class="token punctuation">,</span> PayHandlerView
-
-urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
-    url<span class="token punctuation">(</span>r<span class="token string">'^admin/'</span><span class="token punctuation">,</span> admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    url<span class="token punctuation">(</span>r<span class="token string">'^pay$'</span><span class="token punctuation">,</span> AliPayView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    url<span class="token punctuation">(</span>r<span class="token string">'^alipay_handler'</span><span class="token punctuation">,</span> PayHandlerView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-</code></pre>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render<span class="token punctuation">,</span> redirect
-<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
-<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>views <span class="token keyword">import</span> APIView
-<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>response <span class="token keyword">import</span> Response
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>DefaultAlipayClient <span class="token keyword">import</span> DefaultAlipayClient
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>AlipayClientConfig <span class="token keyword">import</span> AlipayClientConfig
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>AlipayTradePrecreateModel <span class="token keyword">import</span> AlipayTradePrecreateModel
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>request<span class="token punctuation">.</span> AlipayTradePrecreateRequest <span class="token keyword">import</span> AlipayTradePrecreateRequest
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>AlipayTradePagePayModel <span class="token keyword">import</span> AlipayTradePagePayModel
-<span class="token keyword">from</span> alipay<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>api<span class="token punctuation">.</span>request<span class="token punctuation">.</span>AlipayTradePagePayRequest <span class="token keyword">import</span> AlipayTradePagePayRequest
-<span class="token keyword">import</span> time
-
-<span class="token comment" spellcheck="true"># Create your views here.</span>
-<span class="token comment" spellcheck="true"># 沙箱环境地址：https://openhome.alipay.com/platform/appDaily.htm?tab=info</span>
-
-<span class="token comment" spellcheck="true"># "https://openapi.alipaydev.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2"</span>
-
-
-<span class="token keyword">def</span> <span class="token function">ali_pay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 为阿里支付实例化一个配置信息对象</span>
-    alipay_config <span class="token operator">=</span> AlipayClientConfig<span class="token punctuation">(</span>sandbox_debug<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 初始化各种配置信息</span>
-    <span class="token comment" spellcheck="true"># 阿里提供服务的接口</span>
-    alipay_config<span class="token punctuation">.</span>server_url <span class="token operator">=</span> <span class="token string">"https://openapi.alipaydev.com/gateway.do"</span>
-    <span class="token comment" spellcheck="true"># 申请的沙箱环境的app_id</span>
-    alipay_config<span class="token punctuation">.</span>app_id <span class="token operator">=</span> <span class="token string">"2016091800540924"</span>
-    <span class="token comment" spellcheck="true"># 商户的私钥</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"keys/app_private_key.txt"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        alipay_config<span class="token punctuation">.</span>app_private_key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 阿里的公钥</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"keys/alipay_public_key.txt"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        alipay_config<span class="token punctuation">.</span>alipay_public_key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 实例化一个支付对象并返回</span>
-    alipay_client <span class="token operator">=</span> DefaultAlipayClient<span class="token punctuation">(</span>alipay_client_config<span class="token operator">=</span>alipay_config<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> alipay_client
-
-
-<span class="token keyword">class</span> <span class="token class-name">AliPayView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">"pay.html"</span><span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># 生成支付宝自带页面的API</span>
-    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 得到阿里支付的实例化对象</span>
-        client <span class="token operator">=</span> ali_pay<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 为API生成一个模板对象 初始化参数用的</span>
-        model <span class="token operator">=</span> AlipayTradePagePayModel<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 订单号</span>
-        model<span class="token punctuation">.</span>out_trade_no <span class="token operator">=</span> <span class="token string">"pay"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 金额</span>
-        model<span class="token punctuation">.</span>total_amount <span class="token operator">=</span> <span class="token number">8888</span>
-        <span class="token comment" spellcheck="true"># 商品标题</span>
-        model<span class="token punctuation">.</span>subject <span class="token operator">=</span> <span class="token string">"测试"</span>
-        <span class="token comment" spellcheck="true"># 商品详细内容</span>
-        model<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">"支付宝测试"</span>
-        <span class="token comment" spellcheck="true"># 销售产品码，与支付宝签约的产品码名称</span>
-        model<span class="token punctuation">.</span>product_code <span class="token operator">=</span> <span class="token string">"FAST_INSTANT_TRADE_PAY"</span>
-        <span class="token comment" spellcheck="true"># 实例化一个请求对象</span>
-        request <span class="token operator">=</span> AlipayTradePagePayRequest<span class="token punctuation">(</span>biz_model<span class="token operator">=</span>model<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># get请求 用户支付成功后返回的页面请求地址</span>
-        request<span class="token punctuation">.</span>return_url <span class="token operator">=</span> <span class="token string">"http://140.143.63.45:8000/alipay_handler"</span>
-        <span class="token comment" spellcheck="true"># post请求 用户支付成功通知商户的请求地址</span>
-        request<span class="token punctuation">.</span>notify_url <span class="token operator">=</span> <span class="token string">"http://140.143.63.45:8000/alipay_handler"</span>
-        <span class="token comment" spellcheck="true"># 利用阿里支付对象发一个获得页面的请求 参数是request</span>
-        response <span class="token operator">=</span> client<span class="token punctuation">.</span>page_execute<span class="token punctuation">(</span>request<span class="token punctuation">,</span> http_method<span class="token operator">=</span><span class="token string">"GET"</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>response<span class="token punctuation">)</span>
-
-
-<span class="token keyword">class</span> <span class="token class-name">PayHandlerView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># return_url的回调地址</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 用户支付成功之后回到哪</span>
-        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"return_url测试"</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 用户支付成功 在这里修改订单状态以及优惠券贝里等等情况</span>
-        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"notify_url"</span><span class="token punctuation">)</span>
-
-views<span class="token punctuation">.</span>py
-</code></pre>
-<p><strong>注意:</strong> 我们的回调url的测试要放在公网IP上~所以测试的时候放入自己服务器</p>
-
+                <h2 id="Django中使用滑动验证码"><a href="#Django中使用滑动验证码" class="headerlink" title="Django中使用滑动验证码"></a>Django中使用滑动验证码</h2><h3 id="1-1-注册账号"><a href="#1-1-注册账号" class="headerlink" title="1.1 注册账号"></a>1.1 注册账号</h3><p>极验官方: <a href="https://www.geetest.com/" target="_blank" rel="noopener">https://www.geetest.com/</a></p>
+<p>注册好后去申请key和value</p>
+<h3 id="1-2下载SDK"><a href="#1-2下载SDK" class="headerlink" title="1.2下载SDK"></a>1.2下载SDK</h3><p>从Github: gt3-python-sdk下载.zip文件</p>
+<p>这是python的, 当然也有其他语言的~~</p>
+<p>知道你们懒, 还是贴上来吧: <a href="https://docs.geetest.com/install/deploy/server/csharp" target="_blank" rel="noopener">https://docs.geetest.com/install/deploy/server/csharp</a></p>
+<h3 id="1-3-运行项目"><a href="#1-3-运行项目" class="headerlink" title="1.3 运行项目"></a>1.3 运行项目</h3>
             </div>
             <hr>
 
@@ -683,7 +572,7 @@ views<span class="token punctuation">.</span>py
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://Jiesanc.github.io" class="b-link-green">简椿先</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/02/19/diao-yong-zhi-fu-bao-sdk/" class="b-link-green">调用支付宝SDK</a>
+                    <a href="/2019/02/22/django-hua-dong-yan-zheng-ma/" class="b-link-green">Django+滑动验证码</a>
                 </p>
             </div>
         </div>
@@ -705,7 +594,58 @@ views<span class="token punctuation">.</span>py
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/02/22/django-hua-dong-yan-zheng-ma/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Django+滑动验证码">
+                        
+                        <span class="card-title">Django+滑动验证码</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Django中使用滑动验证码1.1 注册账号极验官方: https://www.geetest.com/
+注册好后去申请key和value
+1.2下载SDK从Github: gt3-python-sdk下载.zip文件
+这是python的,</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Django/" class="post-category" target="_blank">
+                                    Django
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
                 <a href="/2019/02/21/pymysql-you-hua-yu-feng-zhuang/">
                     <div class="card-image">
@@ -723,9 +663,9 @@ import pymysql
 # 定义一个数据库相关的配置项
 DB_CO</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -747,54 +687,6 @@ DB_CO</div>
                     
                     <a href="/tags/MySQL/" target="_blank">
                         <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2019/02/18/shu-ju-fen-xi-zhi-numpy/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="数据分析之NumPy">
-                        
-                        <span class="card-title">数据分析之NumPy</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">NumPy1.1简介
-数据分析三剑客：Numpy，Pandas，MatplotlibNumPy(Numerical Python) 是 Python 语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/" target="_blank">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/Numpy/" target="_blank">
-                        <span class="chip bg-color">Numpy</span>
                     </a>
                     
                 </div>
