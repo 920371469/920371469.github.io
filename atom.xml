@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-22T13:35:30.479Z</updated>
+  <updated>2019-02-23T14:28:56.350Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RBAC设计方案</title>
+    <link href="http://Jiesanc.github.io/2019/02/23/rbac-she-ji-fang-an/"/>
+    <id>http://Jiesanc.github.io/2019/02/23/rbac-she-ji-fang-an/</id>
+    <published>2019-02-23T14:22:43.000Z</published>
+    <updated>2019-02-23T14:28:56.350Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;基于权限系统设计方案&quot;&gt;&lt;a href=&quot;#基于权限系统设计方案&quot; class=&quot;headerlink&quot; title=&quot;基于权限系统设计方案&quot;&gt;&lt;/a&gt;基于权限系统设计方案&lt;/h2&gt;&lt;p&gt;RBAC（Role-Based Access
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Django+滑动验证码</title>
