@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-23T14:28:56.350Z</updated>
+  <updated>2019-02-26T13:15:23.231Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SDK视频播放</title>
+    <link href="http://Jiesanc.github.io/2019/02/26/sdk-shi-pin-bo-fang/"/>
+    <id>http://Jiesanc.github.io/2019/02/26/sdk-shi-pin-bo-fang/</id>
+    <published>2019-02-26T13:06:55.000Z</published>
+    <updated>2019-02-26T13:15:23.231Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;保利威视频播放&quot;&gt;&lt;a href=&quot;#保利威视频播放&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+      <category term="SDK" scheme="http://Jiesanc.github.io/tags/SDK/"/>
+    
+  </entry>
   
   <entry>
     <title>RBAC设计方案</title>
