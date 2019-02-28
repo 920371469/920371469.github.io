@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-28T12:24:53.629Z</updated>
+  <updated>2019-02-26T13:15:23.231Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>图灵API实现人机互动</title>
-    <link href="http://Jiesanc.github.io/2019/02/28/tu-ling-api-shi-xian-ren-ji-hu-dong/"/>
-    <id>http://Jiesanc.github.io/2019/02/28/tu-ling-api-shi-xian-ren-ji-hu-dong/</id>
-    <published>2019-02-28T12:19:50.000Z</published>
-    <updated>2019-02-28T12:24:53.629Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1调用图灵API接口实现人机互动&quot;&gt;&lt;a href=&quot;#1调用图灵API接口实现人机互动&quot; class=&quot;headerlink&quot; title=&quot;1调用图灵API接口实现人机互动&quot;&gt;&lt;/a&gt;1调用图灵API接口实现人机互动&lt;/h2&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
-    
-      <category term="SDK" scheme="http://Jiesanc.github.io/tags/SDK/"/>
-    
-  </entry>
   
   <entry>
     <title>SDK视频播放</title>
@@ -397,6 +369,34 @@
     
     
       <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+      <category term="SDK" scheme="http://Jiesanc.github.io/tags/SDK/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图灵API实现人机互动</title>
+    <link href="http://Jiesanc.github.io/2018/11/28/tu-ling-api-shi-xian-ren-ji-hu-dong/"/>
+    <id>http://Jiesanc.github.io/2018/11/28/tu-ling-api-shi-xian-ren-ji-hu-dong/</id>
+    <published>2018-11-28T12:19:50.000Z</published>
+    <updated>2019-02-28T12:25:21.219Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1调用图灵API接口实现人机互动&quot;&gt;&lt;a href=&quot;#1调用图灵API接口实现人机互动&quot; class=&quot;headerlink&quot; title=&quot;1调用图灵API接口实现人机互动&quot;&gt;&lt;/a&gt;1调用图灵API接口实现人机互动&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
     
       <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
     
