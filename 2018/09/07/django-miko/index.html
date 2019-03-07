@@ -5,11 +5,12 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="图灵API实现人机互动, 简椿先">
-    <meta name="description" content="1调用图灵API接口实现人机互动1.1注册图灵机器人官网: http://www.tuling123.com/
-第一步: 先注册, 然后创建机器人, 拿到一个32位的key
-编码方式
-UTF-8（调用图灵API的各个环节的编码方式均为UTF">
+    <meta name="keywords" content="Django-Miko, 简椿先">
+    <meta name="description" content="Django-Miko,一个可定制操作的组件
+Miko组件,能够快速实现对N张表的增删改查以及对表的定制化操作– 批量执行,分页,关键字搜索,组合搜索等功能
+
+Miko组件
+该项目的成因和原理简介项目中增删改查作为最基本和繁琐的操作,需要有">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>图灵API实现人机互动 | 简椿先</title>
+    <title>Django-Miko | 简椿先</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +277,13 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        图灵API实现人机互动
+                        Django-Miko
                     </div>
                 </div>
             </div>
@@ -401,10 +402,6 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
                     <span class="chip bg-color">Python</span>
                 </a>
                 
-                <a href="/tags/SDK/" target="_blank">
-                    <span class="chip bg-color">SDK</span>
-                </a>
-                
             </div>
             
             <div class="post-info">
@@ -421,7 +418,7 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-28
+                    <i class="fa fa-clock-o fa-fw"></i>2018-09-07
                 </span>
 				
 				
@@ -433,133 +430,90 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1调用图灵API接口实现人机互动"><a href="#1调用图灵API接口实现人机互动" class="headerlink" title="1调用图灵API接口实现人机互动"></a>1调用图灵API接口实现人机互动</h2><h3 id="1-1注册"><a href="#1-1注册" class="headerlink" title="1.1注册"></a>1.1注册</h3><p>图灵机器人官网: <a href="http://www.tuling123.com/" target="_blank" rel="noopener">http://www.tuling123.com/</a></p>
-<p>第一步: 先注册, 然后创建机器人, 拿到一个32位的key</p>
-<p><strong>编码方式</strong></p>
-<p>UTF-8（调用图灵API的各个环节的编码方式均为UTF-8）</p>
-<p><strong>接口地址</strong></p>
-<p><a href="http://openapi.tuling123.com/openapi/api/v2" target="_blank" rel="noopener">http://openapi.tuling123.com/openapi/api/v2</a></p>
-<p><strong>请求方式</strong></p>
-<p>HTTP POST</p>
-<p><strong>请求参数</strong></p>
-<p>请求参数格式为 json</p>
-<p>请求示例</p>
-<pre class=" language-python"><code class="language-python">
-<span class="token punctuation">{</span>
-    <span class="token string">"reqType"</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token string">"perception"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token string">"inputText"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"text"</span><span class="token punctuation">:</span> <span class="token string">"附近的酒店"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token string">"inputImage"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"imageUrl"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token string">"selfInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"location"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"北京"</span><span class="token punctuation">,</span>
-                <span class="token string">"province"</span><span class="token punctuation">:</span> <span class="token string">"北京"</span><span class="token punctuation">,</span>
-                <span class="token string">"street"</span><span class="token punctuation">:</span> <span class="token string">"信息路"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"userInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token string">"apiKey"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-        <span class="token string">"userId"</span><span class="token punctuation">:</span> <span class="token string">""</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+                <h2 id="Django-Miko-一个可定制操作的组件"><a href="#Django-Miko-一个可定制操作的组件" class="headerlink" title="Django-Miko,一个可定制操作的组件"></a>Django-Miko,一个可定制操作的组件</h2><blockquote>
+<p>Miko组件,能够快速实现对N张表的增删改查以及对表的定制化操作– 批量执行,分页,关键字搜索,组合搜索等功能</p>
+</blockquote>
+<p><a href="https://github.com/Jiesanc/Miko" target="_blank" rel="noopener">Miko组件</a></p>
+<h2 id="该项目的成因和原理简介"><a href="#该项目的成因和原理简介" class="headerlink" title="该项目的成因和原理简介"></a>该项目的成因和原理简介</h2><p>项目中增删改查作为最基本和繁琐的操作,需要有一套适用于Django所有项目的组件<br>本组件参考Django-admin自带的后台管理系统,实现自身的可定制化操作</p>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><ul>
+<li>本组件基于Django1.11开发</li>
+<li>在setting.py中注册当前app –&gt; miko</li>
+<li>注册路由系统<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> site
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+  url<span class="token punctuation">(</span>r<span class="token string">'^miko/'</span><span class="token punctuation">,</span> site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+</li>
+<li>需要在每个app下生成1个miko.py文件</li>
+<li><p>在每个miko.py文件内注册Models</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> site<span class="token punctuation">,</span>MikoConfig
+
+<span class="token keyword">class</span> <span class="token class-name">PublishConfig</span><span class="token punctuation">(</span>MikoConfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">pass</span>
+
+site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>类名<span class="token punctuation">,</span> PublishConfig<span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="对每个Model定制化功能"><a href="#对每个Model定制化功能" class="headerlink" title="对每个Model定制化功能"></a>对每个Model定制化功能</h3><ul>
+<li><p>C 默认具有这项功能</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_add_btn</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> None
+</code></pre>
+</li>
+<li><p>R</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_list_display</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span>  <span class="token punctuation">[</span>MikoConfig<span class="token punctuation">.</span>display_checkbox<span class="token punctuation">,</span> <span class="token string">'需要展示的字段'</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_edit<span class="token punctuation">(</span>编辑功能<span class="token punctuation">)</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_del<span class="token punctuation">(</span>删除功能<span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+</li>
+<li><p>批量执行</p>
+</li>
+</ul>
+<pre class=" language-python"><code class="language-python">   <span class="token keyword">def</span> <span class="token function">multi_init</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        初始化
+        :param request:
+        :return:
+        """</span>
+        <span class="token keyword">pass</span>
+
+    multi_init<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"初始化"</span>
+</code></pre>
+<ul>
+<li>关键字搜索</li>
+</ul>
+<pre class=" language-python"><code class="language-python">静态字段
+search_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'当前类的字段名'</span><span class="token punctuation">,</span><span class="token string">'tel'</span><span class="token punctuation">,</span><span class="token string">'user__title'</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>组合搜索</li>
+</ul>
+<pre class=" language-python"><code class="language-python">   <span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> Option
+
+   list_filter <span class="token operator">=</span> <span class="token punctuation">[</span>
+        Option<span class="token punctuation">(</span><span class="token string">'数据库的字段名'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span>是否是choice<span class="token punctuation">,</span> 
+                  is_multi<span class="token operator">=</span>是否支持多选<span class="token punctuation">,</span>condition<span class="token operator">=</span>筛选条件<span class="token punctuation">,</span>text_func<span class="token operator">=</span>前端筛选文本<span class="token punctuation">,</span> value_func<span class="token operator">=</span>前端文本所对应的url<span class="token punctuation">)</span>
+        Option<span class="token punctuation">(</span><span class="token string">'level'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Option<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Option<span class="token punctuation">(</span><span class="token string">'pub'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
 
 </code></pre>
-<p><strong>输出请求</strong></p>
-<pre class=" language-python"><code class="language-python">
-<span class="token punctuation">{</span>
-    <span class="token string">"intent"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">10005</span><span class="token punctuation">,</span>
-        <span class="token string">"intentName"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-        <span class="token string">"actionName"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-        <span class="token string">"parameters"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"nearby_place"</span><span class="token punctuation">:</span> <span class="token string">"酒店"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">"results"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-             <span class="token string">"groupType"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-            <span class="token string">"resultType"</span><span class="token punctuation">:</span> <span class="token string">"url"</span><span class="token punctuation">,</span>
-            <span class="token string">"values"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"http://m.elong.com/hotel/0101/nlist/#indate=2016-12-10&amp;outdate=2016-12-11&amp;keywords=%E4%BF%A1%E6%81%AF%E8%B7%AF"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-             <span class="token string">"groupType"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-            <span class="token string">"resultType"</span><span class="token punctuation">:</span> <span class="token string">"text"</span><span class="token punctuation">,</span>
-            <span class="token string">"values"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"text"</span><span class="token punctuation">:</span> <span class="token string">"亲，已帮你找到相关酒店信息"</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>当前组件预留了一些钩子函数</p>
+<ul>
+<li><p>定制ModelForm<br><code>`</code>python<br>def get_model_form_class(self):</p>
+<p>  return DepartModelForm</p>
+</li>
+</ul>
+<pre><code>
+- 增加URL
+```python
+def extra_url(self):
+  data = [
+    url(r&#39;^xxxxxxx/$&#39;, self.xxxxxx),
+    ]
+  return data
 </code></pre>
-<p><strong>异常返回码</strong></p>
-<pre class=" language-python"><code class="language-python">
-<span class="token punctuation">{</span>
-    <span class="token string">'intent'</span><span class="token punctuation">:</span>
-        <span class="token punctuation">{</span>
-            <span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">5000</span>
-        <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="1-2示例代码"><a href="#1-2示例代码" class="headerlink" title="1.2示例代码"></a>1.2示例代码</h2><pre class=" language-python"><code class="language-python">
-<span class="token keyword">import</span> json
-<span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
-<span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        api_url <span class="token operator">=</span> <span class="token string">"http://openapi.tuling123.com/openapi/api/v2"</span>
-        text_input <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'我：'</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> text_input <span class="token operator">==</span> <span class="token string">'exit'</span><span class="token punctuation">:</span>
-            <span class="token keyword">break</span>
-        req <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token string">"reqType"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 输入类型 0-文本, 1-图片, 2-音频</span>
-            <span class="token string">"perception"</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 信息参数</span>
-            <span class="token punctuation">{</span>
-                <span class="token string">"inputText"</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 文本信息</span>
-                <span class="token punctuation">{</span>
-                    <span class="token string">"text"</span><span class="token punctuation">:</span> text_input
-                <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-                <span class="token string">"selfInfo"</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 用户参数</span>
-                <span class="token punctuation">{</span>
-                    <span class="token string">"location"</span><span class="token punctuation">:</span>
-                    <span class="token punctuation">{</span>
-                        <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"深圳"</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 所在城市</span>
-                        <span class="token string">"province"</span><span class="token punctuation">:</span> <span class="token string">"广东"</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 省份</span>
-                        <span class="token string">"street"</span><span class="token punctuation">:</span> <span class="token string">"红花岭路"</span>  <span class="token comment" spellcheck="true"># 街道</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token string">"userInfo"</span><span class="token punctuation">:</span>
-            <span class="token punctuation">{</span>
-                <span class="token string">"apiKey"</span><span class="token punctuation">:</span> <span class="token string">"347b39ee228b4b109dae7270cc08d3c8"</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 改为自己申请的key</span>
-                <span class="token string">"userId"</span><span class="token punctuation">:</span> <span class="token string">"0001"</span>  <span class="token comment" spellcheck="true"># 用户唯一标识(随便填, 非密钥)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true"># print(req)</span>
-        <span class="token comment" spellcheck="true"># 将字典格式的req编码为utf8</span>
-        req <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print(req)</span>
-        http_post <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>api_url<span class="token punctuation">,</span> data<span class="token operator">=</span>req<span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'content-type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-        response <span class="token operator">=</span> urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>http_post<span class="token punctuation">)</span>
-        response_str <span class="token operator">=</span> response<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print(response_str)</span>
-        response_dic <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>response_str<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print(response_dic)</span>
-        intent_code <span class="token operator">=</span> response_dic<span class="token punctuation">[</span><span class="token string">'intent'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">]</span>
-        results_text <span class="token operator">=</span> response_dic<span class="token punctuation">[</span><span class="token string">'results'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'values'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'机器人1号：'</span><span class="token punctuation">,</span> results_text<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># print('code：' + str(intent_code))</span>
-    <span class="token keyword">except</span> KeyError<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'出错啦~~, 下次别问这样的问题了'</span><span class="token punctuation">)</span>
-</code></pre>
-<p><strong>注意:</strong> 如果返回4001(加密方式错误), 请关闭你获取apikey下方的密钥 就可正常运行</p>
-
             </div>
             <hr>
 
@@ -697,7 +651,7 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://Jiesanc.github.io" class="b-link-green">简椿先</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/28/tu-ling-api-shi-xian-ren-ji-hu-dong/" class="b-link-green">图灵API实现人机互动</a>
+                    <a href="/2018/09/07/django-miko/" class="b-link-green">Django-Miko</a>
                 </p>
             </div>
         </div>
@@ -721,23 +675,23 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/12/25/sdk-ji-yan-hua-dong-yan-zheng-ma/">
+                <a href="/2018/11/28/tu-ling-api-shi-xian-ren-ji-hu-dong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="SDK极验滑动验证码">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图灵API实现人机互动">
                         
-                        <span class="card-title">SDK极验滑动验证码</span>
+                        <span class="card-title">图灵API实现人机互动</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Django中使用滑动验证码1.1 注册极验账号极验官方: https://www.geetest.com/
-注册好后去申请key和value
-1.2 下载SDK从Github: gt3-python-sdk下载.zip文件
-这是pytho</div>
+                    <div class="summary">1调用图灵API接口实现人机互动1.1注册图灵机器人官网: http://www.tuling123.com/
+第一步: 先注册, 然后创建机器人, 拿到一个32位的key
+编码方式
+UTF-8（调用图灵API的各个环节的编码方式均为UTF</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-25
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
                         </span>
                         <span class="publish-author">
                             
@@ -773,7 +727,7 @@ UTF-8（调用图灵API的各个环节的编码方式均为UTF">
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="article-badge right-badge text-color">本篇</div>
             <div class="card">
                 <a href="/2018/09/07/django-miko/">
                     <div class="card-image">
@@ -806,6 +760,7 @@ Miko组件
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
