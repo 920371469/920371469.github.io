@@ -435,49 +435,51 @@ Miko组件
 </blockquote>
 <p><a href="https://github.com/Jiesanc/Miko" target="_blank" rel="noopener">Miko组件</a></p>
 <h2 id="该项目的成因和原理简介"><a href="#该项目的成因和原理简介" class="headerlink" title="该项目的成因和原理简介"></a>该项目的成因和原理简介</h2><p>项目中增删改查作为最基本和繁琐的操作,需要有一套适用于Django所有项目的组件<br>本组件参考Django-admin自带的后台管理系统,实现自身的可定制化操作</p>
-<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="1-设置"><a href="#1-设置" class="headerlink" title="1.设置"></a>1.设置</h3><ul>
 <li>本组件基于Django1.11开发</li>
 <li>在setting.py中注册当前app –&gt; miko</li>
-<li>注册路由系统<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> site
+<li>注册路由系统</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> site
 urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
-  url<span class="token punctuation">(</span>r<span class="token string">'^miko/'</span><span class="token punctuation">,</span> site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+url<span class="token punctuation">(</span>r<span class="token string">'^miko/'</span><span class="token punctuation">,</span> site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span>
 </code></pre>
-</li>
+<ul>
 <li>需要在每个app下生成1个miko.py文件</li>
-<li><p>在每个miko.py文件内注册Models</p>
+<li>在每个miko.py文件内注册Models</li>
+</ul>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> site<span class="token punctuation">,</span>MikoConfig
 
 <span class="token keyword">class</span> <span class="token class-name">PublishConfig</span><span class="token punctuation">(</span>MikoConfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">pass</span>
+<span class="token keyword">pass</span>
 
 site<span class="token punctuation">.</span>register<span class="token punctuation">(</span>类名<span class="token punctuation">,</span> PublishConfig<span class="token punctuation">)</span>
 </code></pre>
-</li>
+<h3 id="2-对每个Model定制化功能"><a href="#2-对每个Model定制化功能" class="headerlink" title="2.对每个Model定制化功能"></a>2.对每个Model定制化功能</h3><ul>
+<li>C 默认具有这项功能</li>
 </ul>
-<h3 id="对每个Model定制化功能"><a href="#对每个Model定制化功能" class="headerlink" title="对每个Model定制化功能"></a>对每个Model定制化功能</h3><ul>
-<li><p>C 默认具有这项功能</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_add_btn</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">return</span> None
+    <span class="token keyword">return</span> None
 </code></pre>
-</li>
-<li><p>R</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_list_display</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  <span class="token keyword">return</span>  <span class="token punctuation">[</span>MikoConfig<span class="token punctuation">.</span>display_checkbox<span class="token punctuation">,</span> <span class="token string">'需要展示的字段'</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_edit<span class="token punctuation">(</span>编辑功能<span class="token punctuation">)</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_del<span class="token punctuation">(</span>删除功能<span class="token punctuation">)</span><span class="token punctuation">]</span>
-</code></pre>
-</li>
-<li><p>批量执行</p>
-</li>
+<ul>
+<li>R</li>
 </ul>
-<pre class=" language-python"><code class="language-python">   <span class="token keyword">def</span> <span class="token function">multi_init</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        初始化
-        :param request:
-        :return:
-        """</span>
-        <span class="token keyword">pass</span>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_list_display</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span>  <span class="token punctuation">[</span>MikoConfig<span class="token punctuation">.</span>display_checkbox<span class="token punctuation">,</span> <span class="token string">'需要展示的字段'</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_edit<span class="token punctuation">(</span>编辑功能<span class="token punctuation">)</span><span class="token punctuation">,</span>StarkConfig<span class="token punctuation">.</span>display_del<span class="token punctuation">(</span>删除功能<span class="token punctuation">)</span><span class="token punctuation">]</span>
+</code></pre>
+<ul>
+<li>批量执行</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">multi_init</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    初始化
+    :param request:
+    :return:
+    """</span>
+    <span class="token keyword">pass</span>
 
-    multi_init<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"初始化"</span>
+multi_init<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"初始化"</span>
 </code></pre>
 <ul>
 <li>关键字搜索</li>
@@ -488,32 +490,36 @@ search_list <span class="token operator">=</span> <span class="token punctuation
 <ul>
 <li>组合搜索</li>
 </ul>
-<pre class=" language-python"><code class="language-python">   <span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> Option
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> miko<span class="token punctuation">.</span>service<span class="token punctuation">.</span>miko <span class="token keyword">import</span> Option
 
-   list_filter <span class="token operator">=</span> <span class="token punctuation">[</span>
-        Option<span class="token punctuation">(</span><span class="token string">'数据库的字段名'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span>是否是choice<span class="token punctuation">,</span> 
-                  is_multi<span class="token operator">=</span>是否支持多选<span class="token punctuation">,</span>condition<span class="token operator">=</span>筛选条件<span class="token punctuation">,</span>text_func<span class="token operator">=</span>前端筛选文本<span class="token punctuation">,</span> value_func<span class="token operator">=</span>前端文本所对应的url<span class="token punctuation">)</span>
-        Option<span class="token punctuation">(</span><span class="token string">'level'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        Option<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        Option<span class="token punctuation">(</span><span class="token string">'pub'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-        <span class="token punctuation">]</span>
+list_filter <span class="token operator">=</span> <span class="token punctuation">[</span>
+    Option<span class="token punctuation">(</span><span class="token string">'数据库的字段名'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span>是否是choice<span class="token punctuation">,</span> 
+              is_multi<span class="token operator">=</span>是否支持多选<span class="token punctuation">,</span>condition<span class="token operator">=</span>筛选条件<span class="token punctuation">,</span>text_func<span class="token operator">=</span>前端筛选文本<span class="token punctuation">,</span> value_func<span class="token operator">=</span>前端文本所对应的url<span class="token punctuation">)</span>
+    Option<span class="token punctuation">(</span><span class="token string">'level'</span><span class="token punctuation">,</span> is_choice<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Option<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Option<span class="token punctuation">(</span><span class="token string">'pub'</span><span class="token punctuation">,</span> is_multi<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> text_func<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
 
 </code></pre>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>当前组件预留了一些钩子函数</p>
+<h3 id="3-后记"><a href="#3-后记" class="headerlink" title="3.后记"></a>3.后记</h3><p>当前组件预留了一些钩子函数</p>
 <ul>
-<li><p>定制ModelForm<br><code>`</code>python<br>def get_model_form_class(self):</p>
-<p>  return DepartModelForm</p>
-</li>
+<li>定制ModelForm</li>
 </ul>
-<pre><code>
-- 增加URL
-```python
-def extra_url(self):
-  data = [
-    url(r&#39;^xxxxxxx/$&#39;, self.xxxxxx),
-    ]
-  return data
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_model_form_class</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">return</span> DepartModelForm
+
 </code></pre>
+<ul>
+<li>增加URL</li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">extra_url</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  data <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">'^xxxxxxx/$'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>xxxxxx<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+  <span class="token keyword">return</span> data
+</code></pre>
+
             </div>
             <hr>
 
