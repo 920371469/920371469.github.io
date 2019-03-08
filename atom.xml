@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Jiesanc.github.io/"/>
-  <updated>2019-02-26T13:15:23.231Z</updated>
+  <updated>2019-03-08T07:59:49.351Z</updated>
   <id>http://Jiesanc.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebSocket</title>
+    <link href="http://Jiesanc.github.io/2019/03/08/websocket/"/>
+    <id>http://Jiesanc.github.io/2019/03/08/websocket/</id>
+    <published>2019-03-08T07:47:16.000Z</published>
+    <updated>2019-03-08T07:59:49.351Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;为啥需要WebSocket&quot;&gt;&lt;a href=&quot;#为啥需要WebSocket&quot; class=&quot;headerlink&quot; title=&quot;为啥需要WebSocket&quot;&gt;&lt;/a&gt;为啥需要WebSocket&lt;/h2&gt;&lt;p&gt;初次接触 WebSocket
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://Jiesanc.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Django" scheme="http://Jiesanc.github.io/tags/Django/"/>
+    
+      <category term="Python" scheme="http://Jiesanc.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>SDK视频播放</title>

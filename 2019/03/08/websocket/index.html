@@ -1,0 +1,1082 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="WebSocket, 简椿先">
+    <meta name="description" content="为啥需要WebSocket初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？
+
+答案很简单，因为 HTTP 协议有一个缺陷：通信只能由客户端发起。
+
+举例来说，我们">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>WebSocket | 简椿先</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">简椿先</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">简椿先</div>
+        <div class="logo-desc">
+            
+            以梦为马,明日天涯
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Jiesanc/Jiesanc.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/Jiesanc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:jianchunxian@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 920371469" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #ff9966;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Jiesanc/Jiesanc.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        WebSocket
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/Django/" target="_blank">
+                    <span class="chip bg-color">Django</span>
+                </a>
+                
+                <a href="/tags/Python/" target="_blank">
+                    <span class="chip bg-color">Python</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                <!--<span class="post-cate" style="margin-right: 0px">-->
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/后端/" class="post-category" target="_blank">
+                        后端
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-03-08
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>阅读 <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="为啥需要WebSocket"><a href="#为啥需要WebSocket" class="headerlink" title="为啥需要WebSocket"></a>为啥需要WebSocket</h2><p>初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？</p>
+<blockquote>
+<p>答案很简单，因为 HTTP 协议有一个缺陷：通信只能由客户端发起。</p>
+</blockquote>
+<p>举例来说，我们想了解今天的天气，只能是客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。</p>
+<p>这种单向请求的特点，注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦。我们只能使用”轮询”：每隔一段时候，就发出一个询问，了解服务器有没有新的信息。最典型的场景就是聊天室。</p>
+<p>轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。因此，工程师们一直在思考，有没有更好的方法。WebSocket 就是这样发明的</p>
+<h2 id="WEBSOCKET简单介绍"><a href="#WEBSOCKET简单介绍" class="headerlink" title="WEBSOCKET简单介绍"></a>WEBSOCKET简单介绍</h2><p>WebSocket 协议在2008年诞生，2011年成为国际标准。所有浏览器都已经支持了。</p>
+<p>它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。</p>
+<p><img src="https://i.loli.net/2018/08/24/5b7fae7663660.png" alt="链接"></p>
+<p><strong>特点</strong></p>
+<ul>
+<li>建立在 TCP 协议之上，服务器端的实现比较容易。</li>
+<li>与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器。</li>
+<li>数据格式比较轻量，性能开销小，通信高效。</li>
+<li>可以发送文本，也可以发送二进制数据。</li>
+<li>没有同源限制，客户端可以与任意服务器通信。</li>
+<li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL</li>
+</ul>
+<blockquote>
+<p>ws://example.com:80/some/path</p>
+</blockquote>
+<p><img src="https://i.loli.net/2018/08/24/5b7fae76591bd.jpg" alt=""></p>
+<h2 id="WEBSOCKET的使用"><a href="#WEBSOCKET的使用" class="headerlink" title="WEBSOCKET的使用"></a>WEBSOCKET的使用</h2><h3 id="1-启动服务端"><a href="#1-启动服务端" class="headerlink" title="1.启动服务端"></a>1.启动服务端</h3><pre class=" language-python"><code class="language-python">
+<span class="token keyword">import</span> socket
+
+sock <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>setsockopt<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>SOL_SOCKET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SO_REUSEADDR<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token number">8002</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取客户端socket对象</span>
+conn<span class="token punctuation">,</span> address <span class="token operator">=</span> sock<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取客户端的【握手】信息</span>
+data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span>b<span class="token string">'done'</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="2-启动客户端"><a href="#2-启动客户端" class="headerlink" title="2.启动客户端"></a>2.启动客户端</h3><pre class=" language-python"><code class="language-python">
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+    var socket <span class="token operator">=</span> new WebSocket<span class="token punctuation">(</span><span class="token string">"ws://127.0.0.1:8002/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>当客户端向服务端发送连接请求时，不仅连接还会发送【握手】信息，并等待服务端响应，至此连接才创建成功！</p>
+<h3 id="3-客户端和服务端进行认证"><a href="#3-客户端和服务端进行认证" class="headerlink" title="3.客户端和服务端进行认证"></a>3.客户端和服务端进行认证</h3><p>请求和响应的【握手】信息需要遵循规则：</p>
+<ul>
+<li>从请求【握手】信息中提取 Sec-WebSocket-Key</li>
+<li>利用magic_string 和 Sec-WebSocket-Key 进行hmac1加密，再进行base64加密</li>
+<li>将加密结果响应给客户端</li>
+</ul>
+<p><strong>注：magic string为：258EAFA5-E914-47DA-95CA-C5AB0DC85B11</strong></p>
+<p>请求的握手信息：</p>
+<pre class=" language-python"><code class="language-python">
+GET <span class="token operator">/</span>chatsocket HTTP<span class="token operator">/</span><span class="token number">1.1</span>
+Host<span class="token punctuation">:</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8002</span>
+Connection<span class="token punctuation">:</span> Upgrade
+Pragma<span class="token punctuation">:</span> no<span class="token operator">-</span>cache
+Cache<span class="token operator">-</span>Control<span class="token punctuation">:</span> no<span class="token operator">-</span>cache
+Upgrade<span class="token punctuation">:</span> websocket
+Origin<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">//</span>localhost<span class="token punctuation">:</span><span class="token number">63342</span>
+Sec<span class="token operator">-</span>WebSocket<span class="token operator">-</span>Version<span class="token punctuation">:</span> <span class="token number">13</span>
+Sec<span class="token operator">-</span>WebSocket<span class="token operator">-</span>Key<span class="token punctuation">:</span> mnwFxiOlctXFN<span class="token operator">/</span>DeMt1Amg<span class="token operator">==</span>
+Sec<span class="token operator">-</span>WebSocket<span class="token operator">-</span>Extensions<span class="token punctuation">:</span> permessage<span class="token operator">-</span>deflate<span class="token punctuation">;</span> client_max_window_bits
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>提取Sec-WebSocket-Key值并加密：</p>
+<pre class=" language-python"><code class="language-python">
+<span class="token keyword">import</span> socket
+<span class="token keyword">import</span> base64
+<span class="token keyword">import</span> hashlib
+
+<span class="token keyword">def</span> <span class="token function">get_headers</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    将请求头格式化成字典
+    :param data:
+    :return:
+    """</span>
+    header_dict <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    data <span class="token operator">=</span> str<span class="token punctuation">(</span>data<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\r\n'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    header<span class="token punctuation">,</span> body <span class="token operator">=</span> data<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\r\n\r\n'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    header_list <span class="token operator">=</span> header<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\r\n'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>header_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>header_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                header_dict<span class="token punctuation">[</span><span class="token string">'method'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> header_dict<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> header_dict<span class="token punctuation">[</span><span class="token string">'protocol'</span><span class="token punctuation">]</span> <span class="token operator">=</span> header_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            k<span class="token punctuation">,</span> v <span class="token operator">=</span> header_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+            header_dict<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> header_dict
+
+
+sock <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_STREAM<span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>setsockopt<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>SOL_SOCKET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SO_REUSEADDR<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token number">8002</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sock<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+
+conn<span class="token punctuation">,</span> address <span class="token operator">=</span> sock<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
+headers <span class="token operator">=</span> get_headers<span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 提取请求头信息</span>
+<span class="token comment" spellcheck="true"># 对请求头中的sec-websocket-key进行加密</span>
+response_tpl <span class="token operator">=</span> <span class="token string">"HTTP/1.1 101 Switching Protocols\r\n"</span> \
+      <span class="token string">"Upgrade:websocket\r\n"</span> \
+      <span class="token string">"Connection: Upgrade\r\n"</span> \
+      <span class="token string">"Sec-WebSocket-Accept: %s\r\n"</span> \
+      <span class="token string">"WebSocket-Location: ws://%s%s\r\n\r\n"</span>
+magic_string <span class="token operator">=</span> <span class="token string">'258EAFA5-E914-47DA-95CA-C5AB0DC85B11'</span>
+value <span class="token operator">=</span> headers<span class="token punctuation">[</span><span class="token string">'Sec-WebSocket-Key'</span><span class="token punctuation">]</span> <span class="token operator">+</span> magic_string
+ac <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>hashlib<span class="token punctuation">.</span>sha1<span class="token punctuation">(</span>value<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>digest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+response_str <span class="token operator">=</span> response_tpl <span class="token operator">%</span> <span class="token punctuation">(</span>ac<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> headers<span class="token punctuation">[</span><span class="token string">'Host'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> headers<span class="token punctuation">[</span><span class="token string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 响应【握手】信息</span>
+conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>response_str<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h3 id="4-客户端和服务端收发数据"><a href="#4-客户端和服务端收发数据" class="headerlink" title="4.客户端和服务端收发数据"></a>4.客户端和服务端收发数据</h3><p>客户端和服务端传输数据时，需要对数据进行【封包】和【解包】。客户端的JavaScript类库已经封装【封包】和【解包】过程，但Socket服务端需要手动实现。</p>
+<p>第一步：获取客户端发送的数据【解包】</p>
+<p>实现方式详细过程</p>
+<pre class=" language-python"><code class="language-python">
+<span class="token number">0</span>                   <span class="token number">1</span>                   <span class="token number">2</span>                   <span class="token number">3</span>
+ <span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span> <span class="token number">0</span> <span class="token number">1</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+<span class="token operator">|</span>F<span class="token operator">|</span>R<span class="token operator">|</span>R<span class="token operator">|</span>R<span class="token operator">|</span> opcode<span class="token operator">|</span>M<span class="token operator">|</span> Payload len <span class="token operator">|</span>    Extended payload length    <span class="token operator">|</span>
+<span class="token operator">|</span>I<span class="token operator">|</span>S<span class="token operator">|</span>S<span class="token operator">|</span>S<span class="token operator">|</span>  <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>  <span class="token operator">|</span>A<span class="token operator">|</span>     <span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>     <span class="token operator">|</span>             <span class="token punctuation">(</span><span class="token number">16</span><span class="token operator">/</span><span class="token number">64</span><span class="token punctuation">)</span>           <span class="token operator">|</span>
+<span class="token operator">|</span>N<span class="token operator">|</span>V<span class="token operator">|</span>V<span class="token operator">|</span>V<span class="token operator">|</span>       <span class="token operator">|</span>S<span class="token operator">|</span>             <span class="token operator">|</span>   <span class="token punctuation">(</span><span class="token keyword">if</span> payload len<span class="token operator">==</span><span class="token number">126</span><span class="token operator">/</span><span class="token number">127</span><span class="token punctuation">)</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token operator">|</span><span class="token number">1</span><span class="token operator">|</span><span class="token number">2</span><span class="token operator">|</span><span class="token number">3</span><span class="token operator">|</span>       <span class="token operator">|</span>K<span class="token operator">|</span>             <span class="token operator">|</span>                               <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">+</span>
+<span class="token operator">|</span>     Extended payload length continued<span class="token punctuation">,</span> <span class="token keyword">if</span> payload len <span class="token operator">==</span> <span class="token number">127</span>  <span class="token operator">|</span>
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+<span class="token operator">|</span>                               <span class="token operator">|</span>Masking<span class="token operator">-</span>key<span class="token punctuation">,</span> <span class="token keyword">if</span> MASK set to <span class="token number">1</span>  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+<span class="token operator">|</span> Masking<span class="token operator">-</span>key <span class="token punctuation">(</span>continued<span class="token punctuation">)</span>       <span class="token operator">|</span>          Payload Data         <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">+</span>
+<span class="token punctuation">:</span>                     Payload Data continued <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                <span class="token punctuation">:</span>
+<span class="token operator">+</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">-</span> <span class="token operator">+</span>
+<span class="token operator">|</span>                     Payload Data continued <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>                <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+</code></pre>
+<p>上述说明</p>
+<pre class=" language-python"><code class="language-python">
+Decoding Payload Length
+To read the payload data<span class="token punctuation">,</span> you must know when to stop reading<span class="token punctuation">.</span> That's why the payload length <span class="token keyword">is</span> important to know<span class="token punctuation">.</span> Unfortunately<span class="token punctuation">,</span> this <span class="token keyword">is</span> somewhat complicated<span class="token punctuation">.</span> To read it<span class="token punctuation">,</span> follow these steps<span class="token punctuation">:</span>
+Read bits <span class="token number">9</span><span class="token operator">-</span><span class="token number">15</span> <span class="token punctuation">(</span>inclusive<span class="token punctuation">)</span> <span class="token operator">and</span> interpret that <span class="token keyword">as</span> an unsigned integer<span class="token punctuation">.</span> If it<span class="token string">'s 125 or less, then that'</span>s the length<span class="token punctuation">;</span> you<span class="token string">'re done. If it'</span>s <span class="token number">126</span><span class="token punctuation">,</span> go to step <span class="token number">2</span><span class="token punctuation">.</span> If it's <span class="token number">127</span><span class="token punctuation">,</span> go to step <span class="token number">3</span><span class="token punctuation">.</span>
+Read the next <span class="token number">16</span> bits <span class="token operator">and</span> interpret those <span class="token keyword">as</span> an unsigned integer<span class="token punctuation">.</span> You're done<span class="token punctuation">.</span>
+Read the next <span class="token number">64</span> bits <span class="token operator">and</span> interpret those <span class="token keyword">as</span> an unsigned integer <span class="token punctuation">(</span>The most significant bit MUST be <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span> You're done<span class="token punctuation">.</span>
+Reading <span class="token operator">and</span> Unmasking the Data
+If the MASK bit was set <span class="token punctuation">(</span><span class="token operator">and</span> it should be<span class="token punctuation">,</span> <span class="token keyword">for</span> client<span class="token operator">-</span>to<span class="token operator">-</span>server messages<span class="token punctuation">)</span><span class="token punctuation">,</span> read the next <span class="token number">4</span> octets <span class="token punctuation">(</span><span class="token number">32</span> bits<span class="token punctuation">)</span><span class="token punctuation">;</span> this <span class="token keyword">is</span> the masking key<span class="token punctuation">.</span> Once the payload length <span class="token operator">and</span> masking key <span class="token keyword">is</span> decoded<span class="token punctuation">,</span> you can go ahead <span class="token operator">and</span> read that number of bytes <span class="token keyword">from</span> the socket<span class="token punctuation">.</span> Let's call the data ENCODED<span class="token punctuation">,</span> <span class="token operator">and</span> the key MASK<span class="token punctuation">.</span> To get DECODED<span class="token punctuation">,</span> loop through the octets <span class="token punctuation">(</span>bytes a<span class="token punctuation">.</span>k<span class="token punctuation">.</span>a<span class="token punctuation">.</span> characters <span class="token keyword">for</span> text data<span class="token punctuation">)</span> of ENCODED <span class="token operator">and</span> XOR the octet <span class="token keyword">with</span> the <span class="token punctuation">(</span>i modulo <span class="token number">4</span><span class="token punctuation">)</span>th octet of MASK<span class="token punctuation">.</span> In pseudo<span class="token operator">-</span>code <span class="token punctuation">(</span>that happens to be valid JavaScript<span class="token punctuation">)</span><span class="token punctuation">:</span>
+var DECODED <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>var i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ENCODED<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">+</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    DECODED<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ENCODED<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> MASK<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Now you can figure out what DECODED means depending on your application<span class="token punctuation">.</span>
+</code></pre>
+<p>具体实现的代码</p>
+<pre class=" language-python"><code class="language-python">
+info <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">8096</span><span class="token punctuation">)</span>
+payload_len <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&amp;</span> <span class="token number">127</span>
+<span class="token keyword">if</span> payload_len <span class="token operator">==</span> <span class="token number">126</span><span class="token punctuation">:</span>
+    extend_payload_len <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span>
+    mask <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span>
+    decoded <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+<span class="token keyword">elif</span> payload_len <span class="token operator">==</span> <span class="token number">127</span><span class="token punctuation">:</span>
+    extend_payload_len <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span>
+    mask <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">:</span><span class="token number">14</span><span class="token punctuation">]</span>
+    decoded <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">14</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    extend_payload_len <span class="token operator">=</span> None
+    mask <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">]</span>
+    decoded <span class="token operator">=</span> info<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+bytes_list <span class="token operator">=</span> bytearray<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>decoded<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    chunk <span class="token operator">=</span> decoded<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> mask<span class="token punctuation">[</span>i <span class="token operator">%</span> <span class="token number">4</span><span class="token punctuation">]</span>
+    bytes_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>
+body <span class="token operator">=</span> str<span class="token punctuation">(</span>bytes_list<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
+</code></pre>
+<p>第二步：向客户端发送数据【封包】</p>
+<pre class=" language-python"><code class="language-python">
+<span class="token keyword">def</span> <span class="token function">send_msg</span><span class="token punctuation">(</span>conn<span class="token punctuation">,</span> msg_bytes<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    WebSocket服务端向客户端发送消息
+    :param conn: 客户端连接到服务器端的socket对象,即： conn,address = socket.accept()
+    :param msg_bytes: 向客户端发送的字节
+    :return: 
+    """</span>
+    <span class="token keyword">import</span> struct
+    token <span class="token operator">=</span> b<span class="token string">"\x81"</span>
+    length <span class="token operator">=</span> len<span class="token punctuation">(</span>msg_bytes<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> length <span class="token operator">&lt;</span> <span class="token number">126</span><span class="token punctuation">:</span>
+        token <span class="token operator">+=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">"B"</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> length <span class="token operator">&lt;=</span> <span class="token number">0xFFFF</span><span class="token punctuation">:</span>
+        token <span class="token operator">+=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">"!BH"</span><span class="token punctuation">,</span> <span class="token number">126</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        token <span class="token operator">+=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">"!BQ"</span><span class="token punctuation">,</span> <span class="token number">127</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span>
+    msg <span class="token operator">=</span> token <span class="token operator">+</span> msg_bytes
+    conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token boolean">True</span>
+</code></pre>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="http://Jiesanc.github.io" class="b-link-green">简椿先</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/03/08/websocket/" class="b-link-green">WebSocket</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/03/08/websocket/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="WebSocket">
+                        
+                        <span class="card-title">WebSocket</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">为啥需要WebSocket初次接触 WebSocket 的人，都会问同样的问题：我们已经有了 HTTP 协议，为什么还需要另一个协议？它能带来什么好处？
+
+答案很简单，因为 HTTP 协议有一个缺陷：通信只能由客户端发起。
+
+举例来说，我们</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2019/02/26/sdk-shi-pin-bo-fang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="SDK视频播放">
+                        
+                        <span class="card-title">SDK视频播放</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">保利威视频播放首先上线播放视频容易出的问题就是下载，以及盗录的问题，保利威视提供的API能够帮助我们解决这个问题~
+解决下载的问题就是通过加密视频的形式，解决盗录是通过跑马灯的形式来实现的，那么我们来看下文档~到底要怎么做
+1.1注册账号,</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Django/" target="_blank">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/SDK/" target="_blank">
+                        <span class="chip bg-color">SDK</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 简椿先<br />'
+            + '作者: Jiesan<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">目录</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://github.com/920371469" target="_blank">Jieran</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+			
+                <br>
+                <!--<span id="busuanzi_container_site_pv">-->
+                    <!--本站总访问量 <span style="color: #fff;">5021</span> 次,&nbsp;-->
+                <!--</span>-->
+				<!--<span id="busuanzi_container_site_uv">-->
+                    <!--访客数 <span  style="color: #fff;">3205</span> 人.-->
+                <!--</span>-->
+                <span id="busuanzi_container_site_pv">
+                    本站总访问量 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 次,&nbsp;
+                </span>
+				<span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 人.
+                </span>
+
+
+
+			
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/Jiesanc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:jianchunxian@outlook.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 920371469" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fa fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
